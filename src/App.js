@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import './App.css';
 import axios from "axios";
-import { BaseURL, PathToCreateAccount } from './constants'
+import { BaseURL, PathToCreateAccount, LinkAccountNumGen, LinkRegister } from './constants'
 import Login from "./Components/loginPage";
 import AccountCreated from "./Components/AccountCreated";
 import HomePage from "./Components/HomePage";
@@ -47,11 +47,11 @@ class App extends Component {
       <div className = "App">
         <center>
 
-        <Link to = "/AccountNumberGeneration" id = 'generateNum' />
+        <Link to = {LinkAccountNumGen} id = 'generateNum' />
 
         <Route exact path="/" component = {HomePage}  />
-        <Route path="/Register"  render={(...props) => <Login loginButtonClick={this.handleClick} />} />
-        <Route path="/AccountNumberGeneration" render={(...props) => <AccountCreated accNum={this.state.accNum} prizeWon={this.state.prize}/>} />
+        <Route path={LinkRegister}  render={(...props) => <Login loginButtonClick={this.handleClick} />} />
+        <Route path={LinkAccountNumGen}  render={(...props) => <AccountCreated accNum={this.state.accNum} prizeWon={this.state.prize}/>} />
 
 </center>
       </div>
