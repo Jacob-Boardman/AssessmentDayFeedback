@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Link} from "react-router-dom";
 import { Button } from 'react-bootstrap';
+import {RegisterPageLink} from '../constants.js';
 
 class HomePage extends Component {
 
     registerAccountPageLoad = () =>{
-        window.location.href = "./Register";
+        window.location.href = RegisterPageLink;
     }
 
   render() {
@@ -19,11 +20,10 @@ class HomePage extends Component {
 
             <br/> <br/><br/> <br/>
             <Button bsStyle = "primary" onClick = {this.registerAccountPageLoad}>Register</Button>
-              
+
       </div>
-    ); 
+    );
   }
 }
 
 export default HomePage;
- 

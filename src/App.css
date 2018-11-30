@@ -9,6 +9,13 @@
   padding-top: 300px;
 }
 
+#loginBox {
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+    width: 250px;
+
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
