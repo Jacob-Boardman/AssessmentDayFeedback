@@ -31,8 +31,8 @@ class App extends Component {
 			lastName: lastName
 		}).then( (response) => {
       this.setState({
-				accNum: response.data[0].accountNumber,
-				prize: response.data[1]
+				accNum: response.data.accountNumber,
+				prize: response.data.prize.prizeAmount
 			});
 
 			document.getElementById("generateNum").click();
