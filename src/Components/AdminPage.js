@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Homepage } from '../constants';
+import axios from "axios";
+import { BaseURL, PathToCreateAccount, Homepage} from './constants'
 import { Button } from 'react-bootstrap';
 
 class AccountCreated extends Component {
@@ -55,6 +56,13 @@ class AccountCreated extends Component {
   }
 
   handleSubmit = (event) => {
+    axios.post(BaseURL + PathToCreateAccount,
+      {
+        fullName: this.state.name,
+        username: this.state.username,
+        password: this.state.password
+      })
+
     alert('A name was submitted: ' + this.state.name);
     event.preventDefault();
   }
