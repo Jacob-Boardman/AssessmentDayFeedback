@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { BaseURL, PathToCreateAccount, Homepage} from './constants'
+import { BaseURL, PathToCreateAccount, Homepage} from '../constants'
 import { Button } from 'react-bootstrap';
 
 class AccountCreated extends Component {
