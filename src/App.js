@@ -1,60 +1,58 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import axios from "axios";
-import { BaseURL, PathToCreateAccount, LinkAccountNumGen, LinkRegister } from './constants'
+import { BaseURL, PathToCreateAccount, LinkAdminPage, LinkRegister} from './constants'
 import Login from "./Components/loginPage";
-import AccountCreated from "./Components/AccountCreated";
+import AdminPage from "./Components/AdminPage";
 import HomePage from "./Components/HomePage";
 
 
 class App extends Component {
   constructor(props) {
-		super(props);
+    super(props);
 
-		this.state = {
-			accNum: '',
-			prize: 0
-		}
+    this.state = {
+      accNum: '',
+    }
   }
 
   handleClick = () => {
-    var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("lastName").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-    if(firstName.trim()===""||lastName.trim()===""){
-    alert("invalid input");
-    }else{
-      axios.post(BaseURL+PathToCreateAccount,
-		{
-			firstName: firstName,
-			lastName: lastName
-		}).then( (response) => {
-      this.setState({
-				accNum: response.data.accountNumber,
-				prize: response.data.prize.prizeAmount
-			});
+    if (username.trim() === "" || password.trim() === "") {
+      alert("invalid input");
+    } else {
+      axios.post(BaseURL + PathToCreateAccount,
+        {
+          username: username,
+          password: password
+        }).then((response) => {
+          this.setState({
+            accNum: response.data.accountNumber,
+            
+          });
 
-			document.getElementById("generateNum").click();
-
-    })
+        })
+    }
+    console.log("Testing");
   }
-	}
 
   render() {
     return (
       <Router>
-      <div className = "App">
-        <center>
+        <div className="App">
+          <center>
 
-        <Link to = {LinkAccountNumGen} id = 'generateNum' />
+            <Link to={LinkAdminPage} id='generateNum' />
 
-        <Route exact path="/" component = {HomePage}  />
-        <Route path={LinkRegister}  render={(...props) => <Login loginButtonClick={this.handleClick} />} />
-        <Route path={LinkAccountNumGen}  render={(...props) => <AccountCreated accNum={this.state.accNum} prizeWon={this.state.prize}/>} />
+            <Route exact path="/" component={HomePage} />
+            <Route path={LinkRegister} render={(...props) => <Login loginButtonClick={this.handleClick} />} />
+            <Route path={LinkAdminPage} render={(...props) => <AdminPage username={this.handleClick.username} />} />
 
-</center>
-      </div>
+          </center>
+        </div>
       </Router>
     );
   }

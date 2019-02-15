@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Link} from "react-router-dom";
 import { Button } from 'react-bootstrap';
-import {RegisterPageLink} from '../constants.js';
+import {LinkAdminPage} from '../constants.js';
+import Login from './loginPage.js';
 
 class HomePage extends Component {
 
     registerAccountPageLoad = () =>{
-        window.location.href = RegisterPageLink;
+      window.location.href = LinkAdminPage;
     }
 
   render() {
     return (
 
       <div>
-       <header><h1>Account Prize App</h1></header> <br/> <br/>
+       <header><h1>Assessment Day Feedback</h1></header> <br/> <br/>
 
-            Welcome to the Account Prize App, Register yourself for a chance to win some MONAAAYYYY!!!
+            <h2>Please login</h2>
 
-            <br/> <br/><br/> <br/>
-            <Button bsStyle = "primary" onClick = {this.registerAccountPageLoad}>Register</Button>
+            <Login changePage={this.registerAccountPageLoad}/>
 
       </div>
     );

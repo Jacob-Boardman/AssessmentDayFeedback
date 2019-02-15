@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
 import '../App.css';
 
@@ -8,19 +8,15 @@ class Login extends Component {
 
 		this.state = {
 			accNum: '',
-			prize: 0
 		}
 	}
 	render() {
-		return(<div id = "loginBox">
+		return (<div id="loginBox">
 
-				<h1>Account Creation</h1>
-				<br/><br/>
-
-				First Name: <input id = 'firstName' type = 'text' required/><br/><br/>
-				Last Name: <input id = 'lastName' type = 'text' required/><br/><br/>
-				<Button bsStyle="primary" onClick = {this.props.loginButtonClick}>Submit</Button>
-				</div>);
+			Username: <input id='username' type='text' required /><br /><br />
+			Password: <input id='password' type='password' required /><br /><br />
+			<Button bsStyle="primary" onClick={(event) => {this.props.changePage(); this.props.loginButtonClick()}}>Submit</Button>
+		</div>);
 	}
 }
 
