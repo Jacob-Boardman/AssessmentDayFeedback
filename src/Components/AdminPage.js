@@ -66,9 +66,9 @@ class AccountCreated extends Component {
         <h1>Admin Page</h1>
         <br /><br />
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name: <input className="name" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter full Name" required /></label><br />
-          <label htmlFor="username">Username: <input className="username" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter a userame" required /></label><br />
-          <label htmlFor="password">Password: <input className="password" type="password" value={this.state.value} onChange={this.handleChange} placeholder="Enter a password" required /></label><br />
+          <label htmlFor="name">Name: <input className="name" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter full Name" required /></label><br/>
+          <label htmlFor="username">Username: <input className="username" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter a userame" required /></label><br/>
+          <label htmlFor="password">Password: <input className="password" type="password" value={this.state.value} onChange={this.handleChange} placeholder="Enter a password" required /></label><br/>
           <input type="submit" value="Create User" />
         </form>
         <br /><br /><br /><br />

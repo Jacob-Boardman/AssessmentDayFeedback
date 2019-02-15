@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import axios from "axios";
-import { BaseURL, PathToCreateAccount, LinkAdminPage, LinkRegister} from './constants'
-import Login from "./Components/loginPage";
+import { BaseURL, PathToCreateAccount, LinkAdminPage, LinkQuestionSheet} from './constants'
 import AdminPage from "./Components/AdminPage";
 import HomePage from "./Components/HomePage";
+import QuestionSheet from "./Components/QuestionSheet";
 
 
 class App extends Component {
@@ -48,8 +48,8 @@ class App extends Component {
             <Link to={LinkAdminPage} id='generateNum' />
 
             <Route exact path="/" component={HomePage} />
-            <Route path={LinkRegister} render={(...props) => <Login loginButtonClick={this.handleClick} />} />
-            <Route path={LinkAdminPage} render={(...props) => <AdminPage username={this.handleClick.username} />} />
+            <Route path={LinkQuestionSheet} render={(...props) => <QuestionSheet />} />
+            <Route path={LinkAdminPage} render={(...props) => <AdminPage />} />
 
           </center>
         </div>
